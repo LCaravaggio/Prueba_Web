@@ -16,7 +16,7 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 9!";
+    document.getElementById("search_num").innerHTML = "Holas 10!";
     
     
 }
