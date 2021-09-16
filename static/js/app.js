@@ -21,21 +21,12 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 17!";
-    
-
-    
-    
-}
+    document.getElementById("search_num").innerHTML = "Holas 18!";
+ }
 
 
 function handleClickSearch2() {
-
-   
-  
-    document.getElementById("file").innerHTML = "botón 2"
-    
-    
+    document.getElementById("file").innerHTML = "botón 2";
 }
 
 // Attach an event to listen for the search recipes button
