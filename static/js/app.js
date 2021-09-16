@@ -28,7 +28,7 @@ function handleClickSearch() {
 function handleClickSearch2() {
     
     let links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
-    var al_archivo=""
+    let al_archivo=""
     
     for (var i = 0; i < links.length; i++) {
        var query = links[i]
@@ -52,7 +52,7 @@ function handleClickSearch2() {
     }
     
     download("hello.txt",al_archivo);
-    document.getElementById("file").innerHTML = "bajando archivo";
+    document.getElementById("file").innerHTML = "bajando archivo 2";
 }
 
 // Attach an event to listen for the search recipes button
