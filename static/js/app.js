@@ -1,5 +1,5 @@
-let al_archivo=""
-let links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
+var al_archivo=""
+var links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
 
 // Function to handle the search criteria via button click
 function handleClickSearch() {
@@ -53,9 +53,10 @@ for (var i = 0; i < links.length; i++) {
  }
 
 function handleClickSearch2() {
+    document.getElementById("file").innerHTML = "bajando archivo 3";
     loop.call()
     download("hello.txt",al_archivo);
-    document.getElementById("file").innerHTML = "bajando archivo 3";
+    
 }
 
 // Attach an event to listen for the search recipes button
