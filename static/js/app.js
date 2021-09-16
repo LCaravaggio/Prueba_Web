@@ -1,6 +1,9 @@
 // Function to handle the search criteria via button click
 function handleClickSearch() {
 
+    
+    document.getElementById("search_num").innerHTML = "Hola!";
+    
     alert("button was clicked");
     
         var url = "https://hello-world-l.herokuapp.com/";
