@@ -16,10 +16,12 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 13!";
+    document.getElementById("search_num").innerHTML = "Holas 14!";
     
     var al_archivo = updated_url + ";" + data;
-    download("hello.txt",al_archivo);
+    
+    document.getElementById("file").innerHTML = al_archivo
+    download("hello.txt","texto del archivo");
 }
 
 // Attach an event to listen for the search recipes button
