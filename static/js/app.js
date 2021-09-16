@@ -1,3 +1,6 @@
+let al_archivo=""
+let links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
+
 // Function to handle the search criteria via button click
 function handleClickSearch() {
 
@@ -25,12 +28,9 @@ function handleClickSearch() {
  }
 
 
-function handleClickSearch2() {
-    
-    let links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
-    let al_archivo=""
-    
-    for (var i = 0; i < links.length; i++) {
+function loop
+{
+for (var i = 0; i < links.length; i++) {
        var query = links[i]
         var url = "https://hello-world-l.herokuapp.com/api/search/";
         var updated_url = url + query;
@@ -50,9 +50,12 @@ function handleClickSearch2() {
           });
          
     }
-    
+ }
+
+function handleClickSearch2() {
+    loop.call()
     download("hello.txt",al_archivo);
-    document.getElementById("file").innerHTML = "bajando archivo 2";
+    document.getElementById("file").innerHTML = "bajando archivo 3";
 }
 
 // Attach an event to listen for the search recipes button
