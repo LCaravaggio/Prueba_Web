@@ -1,6 +1,7 @@
 // Function to handle the search criteria via button click
 function handleClickSearch() {
 
+    alert("button was clicked");
     
         var url = "https://hello-world-l.herokuapp.com/";
         var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
