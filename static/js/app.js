@@ -5,13 +5,7 @@ function handleClickSearch() {
     var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
     
    fetch(updated_url)
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-
-                recipeData = data;
-                
+          .then(function (response) {    
                document.getElementById("file").innerHTML = updated_url;
           })
     
