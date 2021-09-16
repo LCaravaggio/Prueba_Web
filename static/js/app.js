@@ -53,9 +53,9 @@ for (var i = 0; i < links.length; i++) {
  }
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = "bajando archivo 3";
-    loop.call()
-    download("hello.txt",al_archivo);
+    document.getElementById("file").innerHTML = "bajando archivo 4";
+    //loop.call()
+    download("hello.txt",links);
     
 }
 
