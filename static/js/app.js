@@ -30,23 +30,12 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-document.getElementById('https://raw.githubusercontent.com/LCaravaggio/Prueba_Web/main/links/VEA%20-%20corto.txt').onchange = function(){
 
-  var file = this.files[0];
-  var reader = new FileReader();
+   
   
     document.getElementById("file").innerHTML = "botón 2"
     
-    reader.onload = function(progressEvent){
-
-    // By lines
-    var lines = this.result.split('\n');
-    for(var line = 0; line < lines.length; line++){
-      document.getElementById("search_num").innerHTML =lines[line];
-    }
-  };
-  reader.readAsText(file);
-};
+    
 }
 
 // Attach an event to listen for the search recipes button
