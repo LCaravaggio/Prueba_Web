@@ -28,7 +28,9 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = links;
+    
+    let links=["Manzana", "Banana"]
+    document.getElementById("file").innerHTML = links.length;
 }
 
 // Attach an event to listen for the search recipes button
