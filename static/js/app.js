@@ -16,7 +16,7 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 10!";
+    document.getElementById("search_num").innerHTML = "Holas 11!";
     
     download("hello.txt","This is the content of my file :)");
 }
