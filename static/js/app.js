@@ -18,9 +18,23 @@ function handleClickSearch() {
     
     document.getElementById("search_num").innerHTML = "Holas 10!";
     
-    
+    download("hello.txt","This is the content of my file :)");
 }
 
 // Attach an event to listen for the search recipes button
 d3.select("#search-btn").on("click", handleClickSearch);
 document.select("#search-btn").on("click", handleClickSearch);
+
+
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
