@@ -6,10 +6,10 @@ function handleClickSearch() {
     
    fetch(updated_url)
           .then(function (response) {    
-               document.getElementById("file").innerHTML = updated_url;
+               document.getElementById("file").innerHTML = response;
           })
     
-    document.getElementById("search_num").innerHTML = "Holas 5!";
+    document.getElementById("search_num").innerHTML = "Holas 6!";
     
     
 }
