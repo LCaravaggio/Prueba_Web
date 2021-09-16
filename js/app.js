@@ -7,8 +7,8 @@ function handleClickSearch() {
         console.log(query);
         document.getElementById("search_query").placeholder=query;
 
-        var url = "https://prueba-holamundo-lcaravaggio.herokuapp.com/";
-        var updated_url = url + query;
+        var url = "https://hello-world-l.herokuapp.com/";
+        var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
 
         fetch(updated_url)
           .then(function (response) {
