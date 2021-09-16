@@ -9,17 +9,20 @@ function handleClickSearch() {
             return response.text();
           })
           .then(function (data) {
-                document.getElementById("file").innerHTML = "Your query: " + updated_url + " returned: " + data;
+           //document.getElementById("file").innerHTML = "Your query: " + updated_url + " returned: " + data;
+       
+           var al_archivo = updated_url + ";" + data;
+           document.getElementById("file").innerHTML = al_archivo
+       
           })
 
           .catch(function (err) {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 15!";
+    document.getElementById("search_num").innerHTML = "Holas 16!";
     
-    //var al_archivo = updated_url + ";" + data;
-    //document.getElementById("file").innerHTML = al_archivo
+
     
     download("hello.txt","texto del archivo");
 }
