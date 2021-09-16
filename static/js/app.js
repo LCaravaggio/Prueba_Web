@@ -4,7 +4,7 @@ function handleClickSearch() {
     var url = "https://hello-world-l.herokuapp.com/";
     var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
     
-    document.getElementById("search_num").innerHTML = "Holas!";
+    document.getElementById("search_num").innerHTML = "Holas 2!";
     document.getElementById("file").innerHTML = updated_url;
     
 }
