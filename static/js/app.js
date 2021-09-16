@@ -6,3 +6,4 @@ function handleClickSearch() {
 
 // Attach an event to listen for the search recipes button
 d3.select("#search-btn").on("click", handleClickSearch);
+document.select("#search-btn").on("click", handleClickSearch);
