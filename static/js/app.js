@@ -1,5 +1,3 @@
-var links = VEAc;
-
 // Function to handle the search criteria via button click
 function handleClickSearch() {
 
