@@ -1,8 +1,9 @@
 // Function to handle the search criteria via button click
 function handleClickSearch() {
 
+    var query = "hamburguesas-good-mark-de-carne-4-u-320-gr"
     var url = "https://hello-world-l.herokuapp.com/api/search/";
-    var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
+    var updated_url = url + query;
     
    fetch(updated_url)
           .then(function (response) {
@@ -11,8 +12,9 @@ function handleClickSearch() {
           .then(function (data) {
            //document.getElementById("file").innerHTML = "Your query: " + updated_url + " returned: " + data;
        
-           var al_archivo = updated_url + ";" + data;
+           var al_archivo = query + ";" + data;
            document.getElementById("file").innerHTML = al_archivo
+           download("hello.txt",al_archivo);
        
           })
 
@@ -20,11 +22,11 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 16!";
+    document.getElementById("search_num").innerHTML = "Holas 17!";
     
 
     
-    download("hello.txt","texto del archivo");
+    
 }
 
 // Attach an event to listen for the search recipes button
