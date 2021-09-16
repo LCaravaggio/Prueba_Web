@@ -10,8 +10,7 @@ function handleClickSearch() {
             return response.text();
           })
           .then(function (data) {
-           //document.getElementById("file").innerHTML = "Your query: " + updated_url + " returned: " + data;
-       
+                  
            var al_archivo = query + ";" + data;
            document.getElementById("file").innerHTML = al_archivo
            download("hello.txt",al_archivo);
@@ -29,9 +28,31 @@ function handleClickSearch() {
     
 }
 
+
+function handleClickSearch2() {
+document.getElementById('https://raw.githubusercontent.com/LCaravaggio/Prueba_Web/main/links/VEA%20-%20corto.txt').onchange = function(){
+
+  var file = this.files[0];
+  var reader = new FileReader();
+  
+    document.getElementById("file").innerHTML = "botón 2"
+    
+    reader.onload = function(progressEvent){
+
+    // By lines
+    var lines = this.result.split('\n');
+    for(var line = 0; line < lines.length; line++){
+      document.getElementById("search_num").innerHTML =lines[line];
+    }
+  };
+  reader.readAsText(file);
+};
+}
+
 // Attach an event to listen for the search recipes button
 d3.select("#search-btn").on("click", handleClickSearch);
 document.select("#search-btn").on("click", handleClickSearch);
+document.select("#search-btn2").on("click", handleClickSearch2);
 
 
 function download(filename, text) {
