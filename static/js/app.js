@@ -9,7 +9,7 @@ function handleClickSearch() {
             return response.text();
           })
           .then(function (data) {
-                document.getElementById("file").innerHTML = "Your query returned: " + data";
+                document.getElementById("file").innerHTML = "Your query returned: " + data;
           })
 
           .catch(function (err) {
