@@ -27,7 +27,32 @@ function handleClickSearch() {
 
 function handleClickSearch2() {
     
-    let links=["Manzana", "Banana"]
+    let links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
+    for (var i = 0; i < links.length; i++) {
+
+        
+        var query = links[i]
+        var url = "https://hello-world-l.herokuapp.com/api/search/";
+        var updated_url = url + query;
+        var al_archivo=""
+        
+        fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+                  
+           al_archivo = al_archivo + query + ";" + data;
+           
+          })
+
+          .catch(function (err) {
+            console.log(err);
+          });
+         
+    }
+    
+    download("hello.txt",al_archivo);
     document.getElementById("file").innerHTML = links.length;
 }
 
