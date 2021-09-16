@@ -9,7 +9,7 @@ function handleClickSearch() {
                document.getElementById("file").innerHTML = updated_url;
           })
     
-    document.getElementById("search_num").innerHTML = "Holas 4!";
+    document.getElementById("search_num").innerHTML = "Holas 5!";
     
     
 }
