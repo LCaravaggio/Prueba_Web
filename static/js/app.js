@@ -9,14 +9,14 @@ function handleClickSearch() {
             return response.text();
           })
           .then(function (data) {
-                document.getElementById("file").innerHTML = "Your query returned: " + data;
+                document.getElementById("file").innerHTML = "Your query: " + updated_url + " returned: " + data;
           })
 
           .catch(function (err) {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 8!";
+    document.getElementById("search_num").innerHTML = "Holas 9!";
     
     
 }
