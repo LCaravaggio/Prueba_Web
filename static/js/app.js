@@ -27,6 +27,17 @@ function handleClickSearch() {
 
 function handleClickSearch2() {
     document.getElementById("file").innerHTML = "botón 2";
+    
+    document.getElementById('https://raw.githubusercontent.com/LCaravaggio/Prueba_Web/main/links/VEA%20-%20corto.txt').onchange = function(){
+  var archivo = this.files[0];
+  var reader = new FileReader();
+  reader.onload = function(progressEvent){
+  document.getElementById("search_num").innerHTML = this.result;
+//console.log(this.result);
+  };
+  reader.readAsText(archivo);
+};
+    
 }
 
 // Attach an event to listen for the search recipes button
