@@ -42,7 +42,7 @@ function handleClickSearch2() {
           .then(function (data) {
                   
            al_archivo = al_archivo + query + ";" + data;
-           
+           document.getElementById("file").innerHTML = query + ";" + data;
           })
 
           .catch(function (err) {
