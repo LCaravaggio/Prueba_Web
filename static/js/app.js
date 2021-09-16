@@ -16,11 +16,11 @@ function handleClickSearch() {
             console.log(err);
           });
     
-    document.getElementById("search_num").innerHTML = "Holas 14!";
+    document.getElementById("search_num").innerHTML = "Holas 15!";
     
-    var al_archivo = updated_url + ";" + data;
+    //var al_archivo = updated_url + ";" + data;
+    //document.getElementById("file").innerHTML = al_archivo
     
-    document.getElementById("file").innerHTML = al_archivo
     download("hello.txt","texto del archivo");
 }
 
