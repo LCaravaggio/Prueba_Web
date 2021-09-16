@@ -3,17 +3,10 @@ function handleClickSearch() {
 
        
     var url = "https://hello-world-l.herokuapp.com/";
-        var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
+    var updated_url = url + "hamburguesas-good-mark-de-carne-4-u-320-gr";
 
     document.getElementById("search_num").innerHTML = updated_url;
     
-        fetch(updated_url)
-          .then(function (response) {
-            return response.json();
-          }
-
-        // Start file download.
-        download("hello.txt","This is the content of my file :)");
 }
 
 // Attach an event to listen for the search recipes button
