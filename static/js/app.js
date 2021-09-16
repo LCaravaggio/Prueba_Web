@@ -6,11 +6,9 @@ function handleClickSearch() {
     
    fetch(updated_url)
           .then(function (response) {
-            return response.json();
+            return response.text();
           })
           .then(function (data) {
-
-
                 document.getElementById("file").innerHTML = "Your query returned: " + data";
           })
 
