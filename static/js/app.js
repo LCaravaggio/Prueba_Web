@@ -26,7 +26,7 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = "botón 2";
+    document.getElementById("file").innerHTML = "Botón 2";
     
     document.getElementById('https://raw.githubusercontent.com/LCaravaggio/Prueba_Web/main/links/VEA%20-%20corto.txt').onchange = function(){
   var archivo = this.files[0];
