@@ -12,10 +12,10 @@ function handleClickSearch() {
 
                 recipeData = data;
                 
-               document.getElementById("file").innerHTML = data;
+               document.getElementById("file").innerHTML = updated_url;
           })
     
-    document.getElementById("search_num").innerHTML = "Holas 3!";
+    document.getElementById("search_num").innerHTML = "Holas 4!";
     
     
 }
