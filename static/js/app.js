@@ -16,7 +16,7 @@ function handleClickSearch() {
                   
            var al_archivo = query + ";" + data;
            document.getElementById("file").innerHTML = al_archivo
-           download("hello.txt",al_archivo);
+           
        
           })
 
@@ -76,6 +76,6 @@ for (var i = 0; i < links.length; i++) {
             console.log(err);
           });    
     }
-document.getElementById("file").innerHTML = "corrió el api call 5";   
-document.getElementById("search_num").innerHTML = al_archivo; 
+    
+download("hello.txt",al_archivo);    
 }
