@@ -62,20 +62,20 @@ for (var i = 0; i < links.length; i++) {
        var url = "https://hello-world-l.herokuapp.com/api/search/";
        var updated_url = url + links[i];
              
-        fetch(updated_url)
+        await fetch(updated_url)
           .then(function (response) {
             return response.text();
           })
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data +"/n";
-            document.getElementById("search_num").innerHTML = "Estoy adentro del for"; 
+           
           
           })
           .catch(function (err) {
             console.log(err);
           });    
     }
- document.getElementById("file").innerHTML = "corrió el api call 3";   
-
+ document.getElementById("file").innerHTML = "corrió el api call 4";   
+document.getElementById("search_num").innerHTML = al_archivo; 
 }
