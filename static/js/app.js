@@ -76,4 +76,5 @@ for (var i = 0; i < links.length; i++) {
           });    
     }
  document.getElementById("file").innerHTML = "corrió el api call";   
- }
+document.getElementById("search_num").innerHTML = al_archivo; 
+}
