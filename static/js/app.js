@@ -11,28 +11,8 @@ var links=[
 
 // Function to handle the search criteria via button click
 function handleClickSearch() {
-
-    var query = "hamburguesas-good-mark-de-carne-4-u-320-gr"
-    var url = "https://hello-world-l.herokuapp.com/vea/search/";
-    var updated_url = url + query;
-    
-   fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-                  
-           var al_archivo = query + ";" + data;
-           document.getElementById("file").innerHTML = al_archivo
-           
-       
-          })
-
-          .catch(function (err) {
-            console.log(err);
-          });
-    
-    document.getElementById("search_num").innerHTML = "Holas 18!";
+  
+    document.getElementById("search_num").innerHTML = "Probá mejor el de VEA";
  }
 
 
