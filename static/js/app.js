@@ -278,7 +278,7 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data ;
-           document.getElementById("file").innerHTML = i + ": "+ links[i];
+           document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
           
           })
           .catch(function (err) {
@@ -286,6 +286,7 @@ for (var i = 0; i < links.length; i++) {
           });    
     }
 
+document.getElementById("file").innerHTML = "Listo!"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
