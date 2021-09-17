@@ -30,7 +30,7 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = "con api_call";
+    document.getElementById("file").innerHTML = links[1];
     //loop.call()
     download("hello.txt",links);
     
