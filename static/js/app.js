@@ -68,13 +68,13 @@ for (var i = 0; i < links.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo += links[i] + ";" + data +"/n";
+           al_archivo = al_archivo + links[i] + ";" + data +"/n";
           
           })
           .catch(function (err) {
             console.log(err);
           });    
     }
- document.getElementById("file").innerHTML = "corrió el api call";   
+ document.getElementById("file").innerHTML = "corrió el api call 3";   
 document.getElementById("search_num").innerHTML = al_archivo; 
 }
