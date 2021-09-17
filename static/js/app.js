@@ -69,6 +69,7 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data +"/n";
+            document.getElementById("search_num").innerHTML = "Estoy adentro del for"; 
           
           })
           .catch(function (err) {
@@ -76,5 +77,5 @@ for (var i = 0; i < links.length; i++) {
           });    
     }
  document.getElementById("file").innerHTML = "corrió el api call 3";   
-document.getElementById("search_num").innerHTML = al_archivo; 
+
 }
