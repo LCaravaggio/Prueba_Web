@@ -30,7 +30,7 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = "bajando archivo 4";
+    document.getElementById("file").innerHTML = "con api_call";
     //loop.call()
     download("hello.txt",links);
     
@@ -57,7 +57,7 @@ function download(filename, text) {
 }
 
 
-function loop
+function api_call
 {
 for (var i = 0; i < links.length; i++) {
        var url = "https://hello-world-l.herokuapp.com/api/search/";
