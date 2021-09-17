@@ -12,7 +12,7 @@ var links=[
 // Function to handle the search criteria via button click
 function handleClickSearch() {
   
-    document.getElementById("search_num").innerHTML = "Probá mejor el de VEA 4";
+    document.getElementById("search_num").innerHTML = "Probá mejor el de VEA 5";
  }
 
 
@@ -54,7 +54,7 @@ for (var i = 0; i < links.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + links[i] + ";" + data + "/n" ;
+           al_archivo = al_archivo + links[i] + ";" + data + "\n" ;
            document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
           
           })
