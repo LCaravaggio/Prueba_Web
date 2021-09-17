@@ -1,4 +1,4 @@
-var al_archivo
+var al_archivo=""
 var links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
 
 // Function to handle the search criteria via button click
@@ -31,9 +31,7 @@ function handleClickSearch() {
 
 function handleClickSearch2() {
     document.getElementById("file").innerHTML = "con api 2";
-    api_call();
-    download("hello.txt",al_archivo);
-    
+    api_call();   
 }
 
 // Attach an event to listen for the search recipes button
