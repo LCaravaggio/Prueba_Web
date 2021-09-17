@@ -557,6 +557,8 @@ function download(filename, text) {
 
 async function api_call(){
 for (var i = 0; i < links.length; i++) {
+       
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
        var updated_url = url + links[i];
              
@@ -567,7 +569,7 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data + "\n" ;
-           document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+           
           
           })
           .catch(function (err) {
