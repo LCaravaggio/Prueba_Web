@@ -28,29 +28,6 @@ function handleClickSearch() {
  }
 
 
-function loop
-{
-for (var i = 0; i < links.length; i++) {
-       var query = links[i]
-        var url = "https://hello-world-l.herokuapp.com/api/search/";
-        var updated_url = url + query;
-             
-        fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-                  
-           al_archivo = al_archivo + query + ";" + data;
-           document.getElementById("file").innerHTML = query + ";" + data;
-          })
-
-          .catch(function (err) {
-            console.log(err);
-          });
-         
-    }
- }
 
 function handleClickSearch2() {
     document.getElementById("file").innerHTML = "bajando archivo 4";
