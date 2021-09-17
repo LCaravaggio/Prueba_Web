@@ -57,12 +57,12 @@ function download(filename, text) {
 }
 
 
-function api_call(){
+async function api_call(){
 for (var i = 0; i < links.length; i++) {
        var url = "https://hello-world-l.herokuapp.com/api/search/";
        var updated_url = url + links[i];
              
-        await fetch(updated_url)
+        fetch(updated_url)
           .then(function (response) {
             return response.text();
           })
@@ -76,6 +76,6 @@ for (var i = 0; i < links.length; i++) {
             console.log(err);
           });    
     }
- document.getElementById("file").innerHTML = "corrió el api call 4";   
+document.getElementById("file").innerHTML = "corrió el api call 4";   
 document.getElementById("search_num").innerHTML = al_archivo; 
 }
