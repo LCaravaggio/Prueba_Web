@@ -216,7 +216,7 @@ var links=[
 function handleClickSearch() {
 
     var query = "hamburguesas-good-mark-de-carne-4-u-320-gr"
-    var url = "https://hello-world-l.herokuapp.com/api/search/";
+    var url = "https://hello-world-l.herokuapp.com/vea/search/";
     var updated_url = url + query;
     
    fetch(updated_url)
