@@ -593,7 +593,7 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 
 async function api_callcoto(){
 for (var i = 0; i < linkscoto.length; i++) {
-  document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];     
+  document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
   
        var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
        var updated_url = url + linkscoto[i];
