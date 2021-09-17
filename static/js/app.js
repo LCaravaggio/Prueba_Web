@@ -230,14 +230,14 @@ linkscoto=[
 
 // Function to handle the search criteria via button click
 function handleClickSearch() {
-  
+    al_archivo=""
     api_callcoto();
  }
 
 
 
 function handleClickSearch2() {
-    
+    al_archivo=""
     api_call();   
 }
 
@@ -298,6 +298,8 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 
 async function api_callcoto(){
 for (var i = 0; i < linkscoto.length; i++) {
+  document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];     
+  
        var url = "https://hello-world-l.herokuapp.com/coto/search/";
        var updated_url = url + linkscoto[i];
              
@@ -308,7 +310,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + linkscoto[i] + ";" + data + "\n" ;
-           document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+           
           
           })
           .catch(function (err) {
