@@ -54,7 +54,7 @@ for (var i = 0; i < links.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + links[i] + ";" + data "/n" ;
+           al_archivo = al_archivo + links[i] + ";" + data + "/n" ;
            document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
           
           })
