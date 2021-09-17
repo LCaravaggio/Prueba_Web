@@ -31,7 +31,7 @@ function handleClickSearch() {
 
 function handleClickSearch2() {
     document.getElementById("file").innerHTML = "con api";
-    api_call.call()
+    api_call();
     download("hello.txt",al_archivo);
     
 }
