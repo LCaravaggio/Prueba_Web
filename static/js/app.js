@@ -1,4 +1,4 @@
-var al_archivo="valor original"
+//var al_archivo="valor original"
 var links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
 
 // Function to handle the search criteria via button click
