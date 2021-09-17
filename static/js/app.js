@@ -268,7 +268,7 @@ function download(filename, text) {
 
 async function api_call(){
 for (var i = 0; i < links.length; i++) {
-       var url = "https://hello-world-l.herokuapp.com/api/search/";
+       var url = "https://hello-world-l.herokuapp.com/vea/search/";
        var updated_url = url + links[i];
              
         await fetch(updated_url)
