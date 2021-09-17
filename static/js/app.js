@@ -1,4 +1,4 @@
-//var al_archivo="valor original"
+var al_archivo="valor original"
 var links=["galletitas-lincoln-angry-birds", "galletitas-criollitas-de-agua-x100gr"]
 
 // Function to handle the search criteria via button click
@@ -68,7 +68,7 @@ for (var i = 0; i < links.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo += links[i] + ";" + data;
+           al_archivo += links[i] + ";" + data +"/n";
           
           })
           .catch(function (err) {
