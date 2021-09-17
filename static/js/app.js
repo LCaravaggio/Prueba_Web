@@ -212,10 +212,26 @@ var links=[
 "queso-sardo-la-serenisima-paq-x-kg"
 ]
 
+
+
+linkscoto=[
+"-galldulces-acaramelada-vocacion-paq-150-grm",
+"-galldulces-chocolat-lincoln-paq-153-grm",
+"-galletitas-dulces-lincoln-clasica-paq-153-grm",
+"-cuadril--seleccion-x-kg",
+"-hamburguesa-coto-cja-4-uni",
+"-hamburguesa--swift-cja-4-uni",
+"-hamburguesa-clasica-paty-cja-320-grm",
+"-salchicha-paladini-paq-6-uni-225-grm",
+"-salchicha-escudo-de-oro-sin-piel-paq-6-uni-190-grm",
+"-salchicha-granja-iris-paq-6-uni-225-grm",
+]
+
+
 // Function to handle the search criteria via button click
 function handleClickSearch() {
   
-    document.getElementById("search_num").innerHTML = "Probá mejor el de VEA 5";
+    api_callcoto();
  }
 
 
@@ -258,6 +274,40 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data + "\n" ;
+           document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+          
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+    }
+
+document.getElementById("file").innerHTML = "Listo!"
+    
+let date_ob = new Date();
+let date = ("0" + date_ob.getDate()).slice(-2);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+let year = date_ob.getFullYear();
+let hours = date_ob.getHours();
+let minutes = date_ob.getMinutes();
+let seconds = date_ob.getSeconds();
+
+download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
+}
+
+
+async function api_callcoto(){
+for (var i = 0; i < linkscoto.length; i++) {
+       var url = "https://hello-world-l.herokuapp.com/coto/search/";
+       var updated_url = url + linkscoto[i];
+             
+        await fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+                  
+           al_archivo = al_archivo + linkscoto[i] + ";" + data + "\n" ;
            document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
           
           })
