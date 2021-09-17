@@ -30,9 +30,9 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = links[1];
-    //loop.call()
-    download("hello.txt",links);
+    document.getElementById("file").innerHTML = "con api";
+    api_call.call()
+    download("hello.txt",al_archivo);
     
 }
 
@@ -57,4 +57,22 @@ function download(filename, text) {
 }
 
 
-
+function api_call(){
+for (var i = 0; i < links.length; i++) {
+       var url = "https://hello-world-l.herokuapp.com/api/search/";
+       var updated_url = url + links[i];
+             
+        fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+                  
+           al_archivo += links[i] + ";" + data;
+          
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+    }
+ }
