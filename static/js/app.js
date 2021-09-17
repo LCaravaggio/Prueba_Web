@@ -241,7 +241,7 @@ function handleClickSearch() {
 
 
 function handleClickSearch2() {
-    document.getElementById("file").innerHTML = "con api 2";
+    
     api_call();   
 }
 
@@ -278,7 +278,7 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data ;
-           
+           document.getElementById("file").innerHTML = i + ": "+ links[i];
           
           })
           .catch(function (err) {
