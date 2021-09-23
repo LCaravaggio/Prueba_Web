@@ -2,12 +2,9 @@ var al_archivo=""
 var TXT=""
 
 
-// Function to handle the search criteria via button click
 function handleClickSearch() {
-
    linkscoto=TXT.split("\n");
- 
-
+   document.getElementById("file").innerHTML="Bajando";
    if (TXT == "") {
    document.getElementById("file").innerHTML ="No ha ingresado un archivo";
    } else
@@ -16,7 +13,6 @@ function handleClickSearch() {
        document.getElementById("file").innerHTML ="Bajando Coto";
        al_archivo="";
        api_callcoto();
- 
    } else
    if (links[1].substring(0,16) == "https://www.vea") {
         document.getElementById("file").innerHTML ="Bajando VEA";
@@ -24,7 +20,6 @@ function handleClickSearch() {
        //api_callvea();
  } else
    document.getElementById("file").innerHTML ="El archivo no es válido";
-
 }
 
 
@@ -33,9 +28,8 @@ document.getElementById('inputfile')
               
             var fr=new FileReader();
             fr.onload=function(){
-                TXT=fr.result;
+            TXT=fr.result;
             }
-              
             fr.readAsText(this.files[0]);
         })
 
@@ -44,10 +38,8 @@ function handlepruebacoto() {
     api_callpruebacoto();   
 }
 
-// Attach an event to listen for the buttons
+
 d3.select("#search-btn").on("click", handleClickSearch);
-
-
 
 function download(filename, text) {
   var element = document.createElement('a');
@@ -63,7 +55,7 @@ function download(filename, text) {
 }
 
 
-async function api_call(){
+async function api_callvea(){
 for (var i = 0; i < links.length; i++) {
        
        document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
@@ -77,8 +69,7 @@ for (var i = 0; i < links.length; i++) {
           .then(function (data) {
                   
            al_archivo = al_archivo + links[i] + ";" + data + "\n" ;
-           
-          
+
           })
           .catch(function (err) {
             console.log(err);
