@@ -660,7 +660,7 @@ for (var i = 0; i < linkscoto.length; i++) {
        var ult= linkscoto[i];
        
        ult=ult.substring(54);
-       ult=ult.substring(0, s.indexOf('/'));
+       ult=ult.substring(0, ult.indexOf('/'));
     
        var updated_url = url + ult;
        document.getElementById("file").innerHTML = updated_url ;
