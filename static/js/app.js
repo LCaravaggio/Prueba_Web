@@ -9,7 +9,7 @@ function handleClickSearch() {
    document.getElementById("file").innerHTML ="No ha ingresado un archivo";
    } else
      
-   document.getElementById("file").innerHTML="Bajando 7";
+   document.getElementById("file").innerHTML=links[1].substring(0,24);
 }
 
 d3.select("#search-btn").on("click", handleClickSearch);
