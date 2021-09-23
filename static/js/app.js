@@ -650,7 +650,7 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 
 async function api_callpruebacoto(){
 
-linkscoto=TXT.split("\n")
+linkscoto=TXT.split("\n");
 
 
 for (var i = 0; i < linkscoto.length; i++) {
@@ -659,12 +659,12 @@ for (var i = 0; i < linkscoto.length; i++) {
        var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
        var ult= linkscoto[i];
     document.getElementById("file").innerHTML = ult;  
-    ult=ult.substring(54);
-    document.getElementById("file").innerHTML = ult;
-       ult=ult.substring(0, s.indexOf('/'));
-    document.getElementById("file").innerHTML = ult;
-       var updated_url = url + ult;
-       document.getElementById("file").innerHTML = updated_url ;
+    //ult=ult.substring(54);
+    //document.getElementById("file").innerHTML = ult;
+    //   ult=ult.substring(0, s.indexOf('/'));
+    //document.getElementById("file").innerHTML = ult;
+    //   var updated_url = url + ult;
+    //   document.getElementById("file").innerHTML = updated_url ;
              
         await fetch(updated_url)
           .then(function (response) {
