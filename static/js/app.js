@@ -3,7 +3,7 @@ var al_archivo=""
 
 // Function to handle the search criteria via button click
 function handleClickSearch() {
-   document.getElementById("file").innerHTML =
+   document.getElementById("file").innerHTML =fn
     //al_archivo=""
    // api_callpruebacoto();
  }
@@ -11,11 +11,11 @@ function handleClickSearch() {
 var reader = new FileReader();
 reader.fileName = file.name // file came from a input file element. file = el.files[0];
 reader.onload = function(readerEvt) {
-    filename=readerEvt.target.fileName;
+    fn=readerEvt.target.fileName;
 };
 
 var TXT=""
-var filename=""
+var fn=""
 
 document.getElementById('inputfile')
             .addEventListener('change', function() {
