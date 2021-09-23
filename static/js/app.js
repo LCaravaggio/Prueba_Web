@@ -536,9 +536,18 @@ function handleClickSearch2() {
 
 
 function handlepruebacoto() {
-  document.getElementById("file").innerHTML = "prueba coto 2";
-  document.getElementById("file").innerHTML = CSV;
+  document.getElementById('inputfile')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('file').innerHTML=fr.result;
+            }
+              
+            fr.readAsText(this.files[0]);
+        })
     
+      
 }
 
 // Attach an event to listen for the buttons
@@ -635,37 +644,3 @@ let seconds = date_ob.getSeconds();
 download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
 }
 
-var CSV=""
-
-function Upload() {
-        var fileUpload = document.getElementById("fileUpload");
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
-        if (regex.test(fileUpload.value.toLowerCase())) {
-            if (typeof (FileReader) != "undefined") {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var table = document.createElement("table");
-                    var rows = e.target.result.split("\n");
-                    CSV=rows
-                    for (var i = 0; i < rows.length; i++) {
-                        var cells = rows[i].split(",");
-                        if (cells.length > 1) {
-                            var row = table.insertRow(-1);
-                            for (var j = 0; j < cells.length; j++) {
-                                var cell = row.insertCell(-1);
-                                cell.innerHTML = cells[j];
-                            }
-                        }
-                    }
-                    var dvCSV = document.getElementById("dvCSV");
-                    dvCSV.innerHTML = "";
-                    dvCSV.appendChild(table);
-                }
-                reader.readAsText(fileUpload.files[0]);
-            } else {
-                alert("Este browser no soporta HTML5.");
-            }
-        } else {
-            alert("Por favor ingrese un archivo CSV válido.");
-        }
-    }
