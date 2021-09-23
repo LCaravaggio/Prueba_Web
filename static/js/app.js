@@ -673,7 +673,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           });    
     }
 
-document.getElementById("file").innerHTML = "Listo!"
+document.getElementById("file").innerHTML = "Listo! prueba coto"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
