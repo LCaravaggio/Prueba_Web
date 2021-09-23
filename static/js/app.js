@@ -534,12 +534,19 @@ function handleClickSearch2() {
     api_call();   
 }
 
+
+function handlepruebacoto() {
+  document.getElementById("file").innerHTML = dvCSV;
+}
+
 // Attach an event to listen for the search recipes button
 d3.select("#search-btn").on("click", handleClickSearch);
 d3.select("#search-btn2").on("click", handleClickSearch2);
 document.select("#search-btn").on("click", handleClickSearch);
 document.select("#search-btn2").on("click", handleClickSearch2);
 
+d3.select("#prueba-coto").on("click", handlepruebacoto);
+document.select("#prueba-coto").on("click", handlepruebacoto);
 
 function download(filename, text) {
   var element = document.createElement('a');
