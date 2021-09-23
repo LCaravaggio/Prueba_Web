@@ -13,15 +13,15 @@ function handleClickSearch() {
    } else
    
    if (links[1].substring(0,24) == "https://www.cotodigital3") {
-   
+       document.getElementById("file").innerHTML ="Bajando Coto";
        al_archivo="";
        api_callcoto();
  
    } else
    if (links[1].substring(0,16) == "https://www.vea") {
-   
-       al_archivo="";
-       api_callvea();
+        document.getElementById("file").innerHTML ="Bajando VEA";
+       //al_archivo="";
+       //api_callvea();
  } else
    document.getElementById("file").innerHTML ="El archivo no es válido";
 
