@@ -88,7 +88,7 @@ let hours = date_ob.getHours();
 let minutes = date_ob.getMinutes();
 let seconds = date_ob.getSeconds();
 
-download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
+download("COTO - " + year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
 }
 
 
@@ -98,9 +98,9 @@ async function api_callvea(){
 linksvea=TXT.split("\n");   
 for (var i = 0; i < linksvea.length; i++) {
        
-       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+       document.getElementById("file").innerHTML = i + 1 + ": "+ linksvea[i];
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
-       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
+       var updated_url = url + linksvea[i].substring(23).substring(0, linksvea[i].length - 25);
              
         await fetch(updated_url)
           .then(function (response) {
@@ -108,7 +108,7 @@ for (var i = 0; i < linksvea.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + links[i] + ";" + data + "\n" ;
+           al_archivo = al_archivo + linksvea[i] + ";" + data + "\n" ;
 
           })
           .catch(function (err) {
@@ -126,19 +126,8 @@ let hours = date_ob.getHours();
 let minutes = date_ob.getMinutes();
 let seconds = date_ob.getSeconds();
 
-download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
+download("VEA - " + year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
 }
 
 
-document.getElementById("file").innerHTML = "Listo!"
-    
-let date_ob = new Date();
-let date = ("0" + date_ob.getDate()).slice(-2);
-let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-let year = date_ob.getFullYear();
-let hours = date_ob.getHours();
-let minutes = date_ob.getMinutes();
-let seconds = date_ob.getSeconds();
 
-download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
-}
