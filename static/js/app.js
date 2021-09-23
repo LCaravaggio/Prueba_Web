@@ -548,9 +548,8 @@ document.getElementById('inputfile')
         })
 
 function handlepruebacoto() {
-  
-    document.getElementById('file').innerHTML=TXT
-      
+    al_archivo=""
+    api_callpruebacoto();   
 }
 
 // Attach an event to listen for the buttons
@@ -647,3 +646,42 @@ let seconds = date_ob.getSeconds();
 download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
 }
 
+
+
+async function api_callpruebacoto(){
+
+linkkscoto=TXT.split("\n")
+    
+for (var i = 0; i < linkscoto.length; i++) {
+  document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
+  
+       var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
+       var updated_url = url + linkscoto[i];
+             
+        await fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+                  
+           al_archivo = al_archivo + linkscoto[i] + ";" + data + "\n" ;
+           
+          
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+    }
+
+document.getElementById("file").innerHTML = "Listo!"
+    
+let date_ob = new Date();
+let date = ("0" + date_ob.getDate()).slice(-2);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+let year = date_ob.getFullYear();
+let hours = date_ob.getHours();
+let minutes = date_ob.getMinutes();
+let seconds = date_ob.getSeconds();
+
+download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
+}
