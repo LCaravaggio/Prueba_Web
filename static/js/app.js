@@ -97,7 +97,7 @@ async function api_callvea(){
    
 linksvea=TXT.split("\n");   
 for (var i = 0; i < linksvea.length; i++) {
-       
+       linksvea[i]=linksvea[i].replace(/(\r\n|\n|\r)/gm, "")
        document.getElementById("file").innerHTML = i + 1 + ": "+ linksvea[i];
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
        var updated_url = url + linksvea[i].substring(23).substring(0, linksvea[i].length - 25);
@@ -108,8 +108,8 @@ for (var i = 0; i < linksvea.length; i++) {
           })
           .then(function (data) {
                   
-          // al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-            al_archivo = al_archivo + linksvea[i] + ";" + data + "\n" ;
+          al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+          
           })
           .catch(function (err) {
             console.log(err);
