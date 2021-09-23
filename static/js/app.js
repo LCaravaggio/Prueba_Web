@@ -108,8 +108,8 @@ for (var i = 0; i < linksvea.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-
+          // al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+            al_archivo = al_archivo + linksvea[i] + ";" + data + "\n" ;
           })
           .catch(function (err) {
             console.log(err);
