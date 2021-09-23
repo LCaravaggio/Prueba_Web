@@ -651,11 +651,13 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 async function api_callpruebacoto(){
 
 linkscoto=TXT.split("\n")
-    
+
+
 for (var i = 0; i < linkscoto.length; i++) {
   document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
   
        var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
+       var ult= linkscoto[i].substring(54).substring(0, s.indexOf('/'));;
        var updated_url = url + linkscoto[i];
              
         await fetch(updated_url)
@@ -673,7 +675,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           });    
     }
 
-document.getElementById("file").innerHTML = "Listo! prueba coto"
+document.getElementById("file").innerHTML = "Listo! prueba coto 1"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
