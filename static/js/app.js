@@ -3,7 +3,7 @@ var TXT=""
 
 
 function handleClickSearch() {
-   var links=TXT.split("\n");
+   //var links=TXT.split("\n");
    document.getElementById("file").innerHTML="Bajando";
    
 }
