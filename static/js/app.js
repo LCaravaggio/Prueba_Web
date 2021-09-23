@@ -534,19 +534,22 @@ function handleClickSearch2() {
     api_call();   
 }
 
+var TXT=""
 
-function handlepruebacoto() {
-  document.getElementById('inputfile')
+document.getElementById('inputfile')
             .addEventListener('change', function() {
               
             var fr=new FileReader();
             fr.onload=function(){
-                document.getElementById('file').innerHTML=fr.result;
+                TXT=fr.result;
             }
               
             fr.readAsText(this.files[0]);
         })
-    
+
+function handlepruebacoto() {
+  
+    document.getElementById('file').innerHTML=TXT
       
 }
 
@@ -555,9 +558,9 @@ d3.select("#search-btn").on("click", handleClickSearch);
 d3.select("#search-btn2").on("click", handleClickSearch2);
 d3.select("#prueba-coto").on("click", handlepruebacoto);
 
-document.select("#search-btn").on("click", handleClickSearch);
-document.select("#search-btn2").on("click", handleClickSearch2);
-document.select("#prueba-coto").on("click", handlepruebacoto);
+//document.select("#search-btn").on("click", handleClickSearch);
+//document.select("#search-btn2").on("click", handleClickSearch2);
+//document.select("#prueba-coto").on("click", handlepruebacoto);
 
 function download(filename, text) {
   var element = document.createElement('a');
