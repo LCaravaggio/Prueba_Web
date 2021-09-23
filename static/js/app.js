@@ -100,7 +100,7 @@ for (var i = 0; i < linksvea.length; i++) {
        
        document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
-       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);;
+       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
              
         await fetch(updated_url)
           .then(function (response) {
