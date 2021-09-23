@@ -536,7 +536,7 @@ function handleClickSearch2() {
 
 
 function handlepruebacoto() {
-  document.getElementById("file").innerHTML = "prueba coto";
+  document.getElementById("file").innerHTML = "prueba coto 2";
   document.getElementById("file").innerHTML = dvCSV;
     
 }
