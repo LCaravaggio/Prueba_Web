@@ -3,8 +3,8 @@ var TXT="";
 
 
 function handleClickSearch() {
-   //var links=TXT.split("\n");
-   document.getElementById("file").innerHTML="Bajando 5";   
+   var links=TXT.split("\n");
+   document.getElementById("file").innerHTML="Bajando 6";   
 }
 
 d3.select("#search-btn").on("click", handleClickSearch);
