@@ -660,8 +660,7 @@ for (var i = 0; i < linkscoto.length; i++) {
        var ult= linkscoto[i];
        
        ult=ult.substring(54);
-       ult=ult.substring(0, ult.indexOf('/'));
-    
+       ult=ult.replace("/_/","");
        var updated_url = url + ult;
                     
         await fetch(updated_url)
@@ -679,7 +678,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           });    
     }
 
-document.getElementById("file").innerHTML = "Listo! prueba coto 3"
+document.getElementById("file").innerHTML = "Listo!"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
