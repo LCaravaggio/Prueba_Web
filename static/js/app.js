@@ -658,10 +658,13 @@ for (var i = 0; i < linkscoto.length; i++) {
   
        var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
        var ult= linkscoto[i];
-       ult=ult.substring(54);
+    document.getElementById("file").innerHTML = ult;  
+    ult=ult.substring(54);
+    document.getElementById("file").innerHTML = ult;
        ult=ult.substring(0, s.indexOf('/'));
+    document.getElementById("file").innerHTML = ult;
        var updated_url = url + ult;
-       document.getElementById("file").innerHTML = updated_url 
+       document.getElementById("file").innerHTML = updated_url ;
              
         await fetch(updated_url)
           .then(function (response) {
@@ -678,7 +681,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           });    
     }
 
-document.getElementById("file").innerHTML = "Listo! prueba coto 2"
+document.getElementById("file").innerHTML = "Listo! prueba coto 3"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
