@@ -4,7 +4,12 @@ var TXT="";
 
 function handleClickSearch() {
    var links=TXT.split("\n");
-   document.getElementById("file").innerHTML="Bajando 6";   
+   
+   if (TXT == "") {
+   document.getElementById("file").innerHTML ="No ha ingresado un archivo";
+   } else
+     
+   document.getElementById("file").innerHTML="Bajando 7";
 }
 
 d3.select("#search-btn").on("click", handleClickSearch);
