@@ -650,7 +650,7 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 
 async function api_callpruebacoto(){
 
-linkkscoto=TXT.split("\n")
+linkscoto=TXT.split("\n")
     
 for (var i = 0; i < linkscoto.length; i++) {
   document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
