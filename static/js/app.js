@@ -654,12 +654,14 @@ linkscoto=TXT.split("\n")
 
 
 for (var i = 0; i < linkscoto.length; i++) {
-  document.getElementById("file").innerHTML = i + 1 + ": p"+ linkscoto[i];     
+  document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
   
        var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
-       var ult= linkscoto[i].substring(54);
+       var ult= linkscoto[i];
+       ult=ult.substring(54);
        ult=ult.substring(0, s.indexOf('/'));
        var updated_url = url + ult;
+       document.getElementById("file").innerHTML = updated_url 
              
         await fetch(updated_url)
           .then(function (response) {
