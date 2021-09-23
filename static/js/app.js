@@ -1,21 +1,32 @@
 var al_archivo=""
+var TXT=""
 
 
 // Function to handle the search criteria via button click
 function handleClickSearch() {
-   document.getElementById("file").innerHTML =fn
-    //al_archivo=""
-   // api_callpruebacoto();
- }
 
-var reader = new FileReader();
-reader.fileName = file.name // file came from a input file element. file = el.files[0];
-reader.onload = function(readerEvt) {
-    fn=readerEvt.target.fileName;
-};
+   linkscoto=TXT.split("\n");
+ 
 
-var TXT=""
-var fn=""
+   if (TXT == "") {
+   document.getElementById("file").innerHTML ="No ha ingresado un archivo";
+   } else
+   
+   if (links[1].substring(0,24) == "https://www.cotodigital3") {
+   
+       al_archivo="";
+       api_callcoto();
+ 
+   } else
+   if (links[1].substring(0,16) == "https://www.vea") {
+   
+       al_archivo="";
+       api_callvea();
+ } else
+   document.getElementById("file").innerHTML ="El archivo no es válido";
+
+}
+
 
 document.getElementById('inputfile')
             .addEventListener('change', function() {
@@ -35,8 +46,7 @@ function handlepruebacoto() {
 
 // Attach an event to listen for the buttons
 d3.select("#search-btn").on("click", handleClickSearch);
-d3.select("#search-btn2").on("click", handleClickSearch2);
-d3.select("#prueba-coto").on("click", handlepruebacoto);
+
 
 
 function download(filename, text) {
@@ -89,28 +99,6 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 }
 
 
-async function api_callcoto(){
-for (var i = 0; i < linkscoto.length; i++) {
-  document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
-  
-       var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
-       var updated_url = url + linkscoto[i];
-             
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-                  
-           al_archivo = al_archivo + linkscoto[i] + ";" + data + "\n" ;
-           
-          
-          })
-          .catch(function (err) {
-            console.log(err);
-          });    
-    }
-
 document.getElementById("file").innerHTML = "Listo!"
     
 let date_ob = new Date();
@@ -126,7 +114,7 @@ download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + s
 
 
 
-async function api_callpruebacoto(){
+async function api_callcoto(){
 
 linkscoto=TXT.split("\n");
 
