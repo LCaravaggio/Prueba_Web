@@ -3,23 +3,9 @@ var TXT=""
 
 
 function handleClickSearch() {
-   linkscoto=TXT.split("\n");
+   var links=TXT.split("\n");
    document.getElementById("file").innerHTML="Bajando";
-   if (TXT == "") {
-   document.getElementById("file").innerHTML ="No ha ingresado un archivo";
-   } else
    
-   if (links[1].substring(0,24) == "https://www.cotodigital3") {
-       document.getElementById("file").innerHTML ="Bajando Coto";
-       al_archivo="";
-       api_callcoto();
-   } else
-   if (links[1].substring(0,16) == "https://www.vea") {
-        document.getElementById("file").innerHTML ="Bajando VEA";
-       //al_archivo="";
-       //api_callvea();
- } else
-   document.getElementById("file").innerHTML ="El archivo no es válido";
 }
 
 
