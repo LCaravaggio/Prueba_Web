@@ -15,7 +15,7 @@ function handleClickSearch() {
        api_callcoto();
    } else
       
-      if (links[1].substring(0,16) == "https://www.vea") {
+      if (links[1].substring(0,15) == "https://www.vea") {
        document.getElementById("file").innerHTML ="Bajando VEA";
        al_archivo="";
        api_callvea();
