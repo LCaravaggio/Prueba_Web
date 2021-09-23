@@ -537,7 +537,7 @@ function handleClickSearch2() {
 
 function handlepruebacoto() {
   document.getElementById("file").innerHTML = "prueba coto 2";
-  document.getElementById("file").innerHTML = dvCSV;
+  document.getElementById("file").innerHTML = CSV;
     
 }
 
@@ -635,6 +635,7 @@ let seconds = date_ob.getSeconds();
 download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
 }
 
+var CSV=""
 
 function Upload() {
         var fileUpload = document.getElementById("fileUpload");
@@ -645,6 +646,7 @@ function Upload() {
                 reader.onload = function (e) {
                     var table = document.createElement("table");
                     var rows = e.target.result.split("\n");
+                    CSV=rows
                     for (var i = 0; i < rows.length; i++) {
                         var cells = rows[i].split(",");
                         if (cells.length > 1) {
