@@ -664,7 +664,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + linkscoto[i].replaceAll("\n","") + ";" + data + "\n" ;
+           al_archivo = al_archivo + linkscoto[i].replaceAll("\n","") + ";" + data.replaceAll("\n","") + "\n" ;
            
           
           })
@@ -673,7 +673,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           });    
     }
 
-document.getElementById("file").innerHTML = "Listo! prueba coto2"
+document.getElementById("file").innerHTML = "Listo! prueba coto3"
     
 let date_ob = new Date();
 let date = ("0" + date_ob.getDate()).slice(-2);
