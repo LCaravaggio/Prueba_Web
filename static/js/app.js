@@ -536,7 +536,7 @@ function handleClickSearch2() {
 
 
 function handlepruebacoto() {
-  document.getElementById("file").innerHTML = dvCSV;
+  document.getElementById("file").innerHTML = "prueba coto";
 }
 
 // Attach an event to listen for the search recipes button
