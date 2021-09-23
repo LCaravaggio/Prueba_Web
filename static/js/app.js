@@ -664,7 +664,7 @@ for (var i = 0; i < linkscoto.length; i++) {
           })
           .then(function (data) {
                   
-           al_archivo = al_archivo + linkscoto[i] + ";" + data + "\n" ;
+           al_archivo = al_archivo + linkscoto[i].replace("\n","") + ";" + data + "\n" ;
            
           
           })
