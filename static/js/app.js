@@ -540,9 +540,9 @@ function handlepruebacoto() {
 }
 
 // Attach an event to listen for the buttons
-//d3.select("#search-btn").on("click", handleClickSearch);
-//d3.select("#search-btn2").on("click", handleClickSearch2);
-//d3.select("#prueba-coto").on("click", handlepruebacoto);
+d3.select("#search-btn").on("click", handleClickSearch);
+d3.select("#search-btn2").on("click", handleClickSearch2);
+d3.select("#prueba-coto").on("click", handlepruebacoto);
 
 document.select("#search-btn").on("click", handleClickSearch);
 document.select("#search-btn2").on("click", handleClickSearch2);
