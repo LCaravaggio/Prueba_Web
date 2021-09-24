@@ -46,7 +46,7 @@ async function baja() {
          document.getElementById("file").innerHTML ="Bajando link Coto";
         
          var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
-         var ult= linkscoto[i];
+         var ult= links[i];
        
          ult=ult.substring(54);
          ult=ult.replace("/_/","");
@@ -57,8 +57,8 @@ async function baja() {
               return response.text();
             })
             .then(function (data) {
-               document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];            
-               al_archivo = al_archivo + linkscoto[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
+               document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];            
+               al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
             })
              .catch(function (err) {
                console.log(err);
@@ -68,10 +68,10 @@ async function baja() {
       if (links[i].substring(0,15) == "https://www.vea") {
        document.getElementById("file").innerHTML ="Bajando link VEA";
        
-       linksvea[i]=linksvea[i].replace(/(\r\n|\n|\r)/gm, "")
-       document.getElementById("file").innerHTML = i + 1 + ": "+ linksvea[i];
+       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
-       var updated_url = url + linksvea[i].substring(23).substring(0, linksvea[i].length - 25);
+       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
              
         await fetch(updated_url)
           .then(function (response) {
@@ -79,7 +79,7 @@ async function baja() {
           })
           .then(function (data) {
                   
-          al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+          al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
           .catch(function (err) {
@@ -89,7 +89,7 @@ async function baja() {
 
    } else
       document.getElementById("file").innerHTML ="El formato del link no es el correcto";
-      al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+      al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
 }
 
 document.getElementById("file").innerHTML = "Listo!"
