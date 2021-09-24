@@ -2,27 +2,83 @@ var al_archivo="";
 var TXT="";
 
 
-function handleClickSearch() {
+async function handleClickSearch() {
    var links=TXT.split("\n");
    
    if (TXT == "") {
    document.getElementById("file").innerHTML ="No ha ingresado un archivo";
    } else
-     
-   if (links[1].substring(0,24) == "https://www.cotodigital3") {
-       document.getElementById("file").innerHTML ="Bajando Coto";
-       al_archivo="";
-       api_callcoto();
+   
+   al_archivo="";
+   for (var i = 0; i < links.length; i++) {
+           
+   if (links[i].substring(0,24) == "https://www.cotodigital3") {
+       document.getElementById("file").innerHTML ="Bajando link Coto";
+        
+       var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
+       var ult= linkscoto[i];
+       
+       ult=ult.substring(54);
+       ult=ult.replace("/_/","");
+       var updated_url = url + ult;
+                    
+        await fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+           
+           document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];            
+           al_archivo = al_archivo + linkscoto[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+                     
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+
    } else
       
-      if (links[1].substring(0,15) == "https://www.vea") {
-       document.getElementById("file").innerHTML ="Bajando VEA";
-       al_archivo="";
-       api_callvea();
+      if (links[i].substring(0,15) == "https://www.vea") {
+       document.getElementById("file").innerHTML ="Bajando link VEA";
+       
+       linksvea[i]=linksvea[i].replace(/(\r\n|\n|\r)/gm, "")
+       document.getElementById("file").innerHTML = i + 1 + ": "+ linksvea[i];
+       var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
+       var updated_url = url + linksvea[i].substring(23).substring(0, linksvea[i].length - 25);
+             
+        await fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+                  
+          al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+          
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+    }
+
    } else
-      document.getElementById("file").innerHTML ="El formato de links no es el correcto";
+      document.getElementById("file").innerHTML ="El formato del link no es el correcto";
+      al_archivo = al_archivo + "formato de link incorrecto" + "\n" ;
 }
 
+document.getElementById("file").innerHTML = "Listo!"
+    
+let date_ob = new Date();
+let date = ("0" + date_ob.getDate()).slice(-2);
+let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+let year = date_ob.getFullYear();
+let hours = date_ob.getHours();
+let minutes = date_ob.getMinutes();
+let seconds = date_ob.getSeconds();
+
+download(year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);
+}
+
+   
 d3.select("#search-btn").on("click", handleClickSearch);
 
 document.getElementById('inputfile')
@@ -47,87 +103,3 @@ function download(filename, text) {
 
   document.body.removeChild(element);
 }
-
-
-async function api_callcoto(){
-
-linkscoto=TXT.split("\n");
-
-for (var i = 0; i < linkscoto.length; i++) {
-  document.getElementById("file").innerHTML = i + 1 + ": "+ linkscoto[i];     
-  
-       var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
-       var ult= linkscoto[i];
-       
-       ult=ult.substring(54);
-       ult=ult.replace("/_/","");
-       var updated_url = url + ult;
-                    
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-                  
-           al_archivo = al_archivo + linkscoto[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-           
-          
-          })
-          .catch(function (err) {
-            console.log(err);
-          });    
-    }
-
-document.getElementById("file").innerHTML = "Listo!"
-    
-let date_ob = new Date();
-let date = ("0" + date_ob.getDate()).slice(-2);
-let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-let year = date_ob.getFullYear();
-let hours = date_ob.getHours();
-let minutes = date_ob.getMinutes();
-let seconds = date_ob.getSeconds();
-
-download("COTO - " + year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
-}
-
-
-
-async function api_callvea(){
-   
-linksvea=TXT.split("\n");   
-for (var i = 0; i < linksvea.length; i++) {
-       linksvea[i]=linksvea[i].replace(/(\r\n|\n|\r)/gm, "")
-       document.getElementById("file").innerHTML = i + 1 + ": "+ linksvea[i];
-       var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
-       var updated_url = url + linksvea[i].substring(23).substring(0, linksvea[i].length - 25);
-             
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-                  
-          al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-          
-          })
-          .catch(function (err) {
-            console.log(err);
-          });    
-    }
-
-document.getElementById("file").innerHTML = "Listo!"
-    
-let date_ob = new Date();
-let date = ("0" + date_ob.getDate()).slice(-2);
-let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-let year = date_ob.getFullYear();
-let hours = date_ob.getHours();
-let minutes = date_ob.getMinutes();
-let seconds = date_ob.getSeconds();
-
-download("VEA - " + year + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds+".csv",al_archivo);    
-}
-
-
-
