@@ -46,6 +46,7 @@ async function baja() {
       if (links[i].substring(0,24) == "https://www.cotodigital3") 
       {
          document.getElementById("file").innerHTML ="Bajando link Coto";
+         document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
         
          var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
          var ult= links[i];
@@ -59,7 +60,7 @@ async function baja() {
               return response.text();
             })
             .then(function (data) {
-               document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];            
+               
                al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
             })
              .catch(function (err) {
@@ -70,9 +71,10 @@ async function baja() {
       else {
       if (links[i].substring(0,15) == "https://www.vea") {
        document.getElementById("file").innerHTML ="Bajando link VEA";
-       
-       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
        document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+         
+       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
+       
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
        var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
              
@@ -81,7 +83,7 @@ async function baja() {
             return response.text();
           })
           .then(function (data) {
-          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];                    
+          
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
