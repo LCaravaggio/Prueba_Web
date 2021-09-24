@@ -43,7 +43,8 @@ async function baja() {
    
    for (var i = 0; i < links.length; i++) {
            
-      if (links[i].substring(0,24) == "https://www.cotodigital3") {
+      if (links[i].substring(0,24) == "https://www.cotodigital3") 
+      {
          document.getElementById("file").innerHTML ="Bajando link Coto";
         
          var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
@@ -64,8 +65,9 @@ async function baja() {
              .catch(function (err) {
                console.log(err);
             });    
-
-   } else {
+      } 
+   
+      else {
       if (links[i].substring(0,15) == "https://www.vea") {
        document.getElementById("file").innerHTML ="Bajando link VEA";
        
@@ -86,15 +88,12 @@ async function baja() {
           .catch(function (err) {
             console.log(err);
           });    
-   
-
-   } else {
-      document.getElementById("file").innerHTML ="El formato del link no es el correcto";
-      al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+          } else {
+            document.getElementById("file").innerHTML ="El formato del link no es el correcto";
+            al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+          } 
    }
-   
-   }
-
+}
 document.getElementById("file").innerHTML = "Listo!"
     
 let date_ob = new Date();
