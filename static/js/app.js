@@ -62,7 +62,7 @@ async function handleClickSearch() {
 
    } else
       document.getElementById("file").innerHTML ="El formato del link no es el correcto";
-      al_archivo = al_archivo + "formato de link incorrecto" + "\n" ;
+      al_archivo = al_archivo + linksvea[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
 }
 
 document.getElementById("file").innerHTML = "Listo!"
