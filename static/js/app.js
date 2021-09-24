@@ -81,7 +81,7 @@ async function baja() {
             return response.text();
           })
           .then(function (data) {
-                  
+          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];                    
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
