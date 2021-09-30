@@ -91,8 +91,22 @@ async function baja() {
             console.log(err);
           });    
           } else {
-            document.getElementById("file").innerHTML ="El formato del link no es el correcto";
-            al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+             
+             if(links[i].substring(0,15) == "https://www.dia"){
+             document.getElementById("file").innerHTML ="1";
+             }else{
+             
+                if(links[i].substring(0,15) == "https://www.carre"){
+             document.getElementById("file").innerHTML ="3";
+             }else{
+             document.getElementById("file").innerHTML ="El formato del link no es el correcto";
+             al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+             }
+                
+                
+             }
+             
+            
           } 
    }
 }
