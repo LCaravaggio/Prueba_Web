@@ -34,72 +34,6 @@ function download(filename, text) {
 }
 
 
-async function coto() {
-         document.getElementById("file").innerHTML ="Bajando link Coto";     
-         var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
-         var ult= links[i];
-       
-         ult=ult.substring(54);
-         ult=ult.replace("/_/","");
-         var updated_url = url + ult;
-                    
-          await fetch(updated_url)
-           .then(function (response) {
-              return response.text();
-            })
-            .then(function (data) {
-               
-               al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
-            })
-             .catch(function (err) {
-               console.log(err);
-            });  
-  } 
-   
-
-async function carrefour(){
-       document.getElementById("file").innerHTML ="Bajando link Carrefour";   
-       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
-       
-       var url = "https://scrapers-caravaggio.herokuapp.com/carrefour/search/";
-       var updated_url = url + links[i].substring(29).substring(0, links[i].length - 31);
-             
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
-          al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-            })
-             .catch(function (err) {
-               console.log(err);
-            }); 
-  } 
-
-
-async function dia() {
-document.getElementById("file").innerHTML ="Bajando link DIA";
-       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
-         
-       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
-       
-       var url = "https://scrapers-caravaggio.herokuapp.com/dia/search/";
-       var updated_url = url + links[i].substring(35).substring(0, links[i].length - 37);
-             
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-          
-          al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-          })
-             .catch(function (err) {
-               console.log(err);
-            }); 
-          } 
-
 async function baja() {
      
    if (TXT == "") {
@@ -111,21 +45,22 @@ async function baja() {
    
    for (var i = 0; i < links.length; i++) {
            
-      if (links[i].substring(0,24) == "https://www.cotodigital3") {coto();} 
+      if (links[i].substring(0,24) == "https://www.cotodigital3") {document.getElementById("file").innerHTML ="COTO";} 
          else {
-            if (links[i].substring(0,15) == "https://www.vea") {vea();}   
+            if (links[i].substring(0,15) == "https://www.vea") {document.getElementById("file").innerHTML ="VEA";}   
                 else {            
-                   if (links[i].substring(0,28) == "https://www.carrefour.com.ar"){carrefour();}
+                   if (links[i].substring(0,28) == "https://www.carrefour.com.ar"){document.getElementById("file").innerHTML ="CARREFOUR";}
                        else {
-                           if (links[i].substring(0,17) == "https://diaonline"){dia();}
+                           if (links[i].substring(0,17) == "https://diaonline"){document.getElementById("file").innerHTML ="DIA";}
                                 else {
             document.getElementById("file").innerHTML ="El formato del link no es el correcto";
-            al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;}
+            al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
+                                }
                        }        
-                }
-           }
-       } 
-   }  
+                 }
+          }
+     } 
+               }      
 }
 
 document.getElementById("file").innerHTML = "Listo!"
