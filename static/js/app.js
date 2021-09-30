@@ -124,7 +124,8 @@ async function baja() {
                        }        
                 }
            }
-    }  
+       } 
+   }  
 }
 
 document.getElementById("file").innerHTML = "Listo!"
