@@ -54,13 +54,13 @@ async function baja() {
          ult=ult.substring(54);
          ult=ult.replace("/_/","");
          var updated_url = url + ult;
-                    
+         document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];          
           await fetch(updated_url)
            .then(function (response) {
               return response.text();
             })
             .then(function (data) {
-               document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+               
                al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
             })
              .catch(function (err) {
@@ -75,13 +75,14 @@ async function baja() {
        
        var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
        var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
-             
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+         
         await fetch(updated_url)
           .then(function (response) {
             return response.text();
           })
           .then(function (data) {
-          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+          
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
@@ -96,14 +97,15 @@ async function baja() {
        links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
        
        var url = "https://scrapers-caravaggio.herokuapp.com/dia/search/";
-       var updated_url = url + links[i].substring(35).substring(0, links[i].length - 37);
-             
+       var updated_url = url + links[i].substring(42).substring(0, links[i].length - 44);
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+                
         await fetch(updated_url)
           .then(function (response) {
             return response.text();
           })
           .then(function (data) {
-          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+          
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
@@ -121,13 +123,14 @@ async function baja() {
        
        var url = "https://scrapers-caravaggio.herokuapp.com/carrefour/search/";
        var updated_url = url + links[i].substring(29).substring(0, links[i].length - 31);
-             
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+                   
         await fetch(updated_url)
           .then(function (response) {
             return response.text();
           })
           .then(function (data) {
-          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+          
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
           
           })
