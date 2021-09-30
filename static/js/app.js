@@ -1,6 +1,5 @@
 var al_archivo="";
 var TXT="";
-var links="";
 
 
 function handleClickSearch() {
@@ -33,7 +32,6 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-
 async function baja() {
      
    if (TXT == "") {
@@ -41,26 +39,62 @@ async function baja() {
      } else {
    
    al_archivo="";
-   links=TXT.split("\n");
+   var links=TXT.split("\n");
    
    for (var i = 0; i < links.length; i++) {
            
-      if (links[i].substring(0,24) == "https://www.cotodigital3") {document.getElementById("file").innerHTML ="COTO";} 
-         else {
-            if (links[i].substring(0,15) == "https://www.vea") {document.getElementById("file").innerHTML ="VEA";}   
-                else {            
-                   if (links[i].substring(0,28) == "https://www.carrefour.com.ar"){document.getElementById("file").innerHTML ="CARREFOUR";}
-                       else {
-                           if (links[i].substring(0,17) == "https://diaonline"){document.getElementById("file").innerHTML ="DIA";}
-                                else {
+      if (links[i].substring(0,24) == "https://www.cotodigital3") 
+      {
+         document.getElementById("file").innerHTML ="Bajando link Coto";
+         document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+        
+         var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
+         var ult= links[i];
+       
+         ult=ult.substring(54);
+         ult=ult.replace("/_/","");
+         var updated_url = url + ult;
+                    
+          await fetch(updated_url)
+           .then(function (response) {
+              return response.text();
+            })
+            .then(function (data) {
+               
+               al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
+            })
+             .catch(function (err) {
+               console.log(err);
+            });    
+      } 
+   
+      else {
+      if (links[i].substring(0,15) == "https://www.vea") {
+       document.getElementById("file").innerHTML ="Bajando link VEA";
+       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+         
+       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
+       
+       var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
+       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
+             
+        await fetch(updated_url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (data) {
+          
+          al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
+          
+          })
+          .catch(function (err) {
+            console.log(err);
+          });    
+          } else {
             document.getElementById("file").innerHTML ="El formato del link no es el correcto";
             al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
-                                }
-                       }        
-                 }
-          }
-     } 
-               }      
+          } 
+   }
 }
 
 document.getElementById("file").innerHTML = "Listo!"
