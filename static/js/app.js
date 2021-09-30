@@ -1,5 +1,6 @@
 var al_archivo="";
 var TXT="";
+var links="";
 
 
 function handleClickSearch() {
@@ -47,12 +48,12 @@ async function coto() {
               return response.text();
             })
             .then(function (data) {
-               document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
+               
                al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
             })
              .catch(function (err) {
                console.log(err);
-            });   
+            });  
   } 
    
 
@@ -106,7 +107,7 @@ async function baja() {
      } else {
    
    al_archivo="";
-   var links=TXT.split("\n");
+   links=TXT.split("\n");
    
    for (var i = 0; i < links.length; i++) {
            
