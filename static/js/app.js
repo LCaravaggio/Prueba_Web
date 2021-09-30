@@ -92,12 +92,12 @@ async function baja() {
           });    
           } else {
              
-             if(links[i].substring(0,15) == "https://www.dia"){
-             document.getElementById("file").innerHTML ="1";
+             if(links[i].substring(0,17) == "https://diaonline"){
+             document.getElementById("file").innerHTML ="Dia";
              }else{
              
-                if(links[i].substring(0,15) == "https://www.carre"){
-             document.getElementById("file").innerHTML ="3";
+                if(links[i].substring(0,28) == "https://www.carrefour.com.ar"){
+             document.getElementById("file").innerHTML ="Carrefour";
              }else{
              document.getElementById("file").innerHTML ="El formato del link no es el correcto";
              al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;
