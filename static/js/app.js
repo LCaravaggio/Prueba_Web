@@ -32,22 +32,9 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-async function baja() {
-     
-   if (TXT == "") {
-     document.getElementById("file").innerHTML ="No ha ingresado un archivo";
-     } else {
-   
-   al_archivo="";
-   var links=TXT.split("\n");
-   
-   for (var i = 0; i < links.length; i++) {
-           
-      if (links[i].substring(0,24) == "https://www.cotodigital3") 
-      {
-         document.getElementById("file").innerHTML ="Bajando link Coto";
-         document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
-        
+
+async function coto() {
+         document.getElementById("file").innerHTML ="Bajando link Coto";     
          var url = "https://scrapers-caravaggio.herokuapp.com/coto/search/";
          var ult= links[i];
        
@@ -60,43 +47,17 @@ async function baja() {
               return response.text();
             })
             .then(function (data) {
-               
+               document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
                al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;      
             })
              .catch(function (err) {
                console.log(err);
-            });    
-      } 
+            });   
+  } 
    
-      else {
-      if (links[i].substring(0,15) == "https://www.vea") {
-       document.getElementById("file").innerHTML ="Bajando link VEA";
-       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
-         
-       links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
-       
-       var url = "https://scrapers-caravaggio.herokuapp.com/vea/search/";
-       var updated_url = url + links[i].substring(23).substring(0, links[i].length - 25);
-             
-        await fetch(updated_url)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (data) {
-          
-          al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-          
-          })
-          .catch(function (err) {
-            console.log(err);
-          });    
-          } else {
-            
-             if (links[i].substring(0,28) == "https://www.carrefour.com.ar"){
-             
-             document.getElementById("file").innerHTML ="Bajando link Carrefour";
-       document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
-         
+
+async function carrefour(){
+       document.getElementById("file").innerHTML ="Bajando link Carrefour";   
        links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
        
        var url = "https://scrapers-caravaggio.herokuapp.com/carrefour/search/";
@@ -107,16 +68,17 @@ async function baja() {
             return response.text();
           })
           .then(function (data) {
-          
+          document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-             
-             }
-             else {
-             
-             
-             if (links[i].substring(0,17) == "https://diaonline"){
-        
-                     document.getElementById("file").innerHTML ="Bajando link Carrefour";
+            })
+             .catch(function (err) {
+               console.log(err);
+            }); 
+  } 
+
+
+async function dia() {
+document.getElementById("file").innerHTML ="Bajando link DIA";
        document.getElementById("file").innerHTML = i + 1 + ": "+ links[i];
          
        links[i]=links[i].replace(/(\r\n|\n|\r)/gm, "")
@@ -131,18 +93,35 @@ async function baja() {
           .then(function (data) {
           
           al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + data + "\n" ;
-        
-        }
-             else {
-                
+          })
+             .catch(function (err) {
+               console.log(err);
+            }); 
+          } 
+
+async function baja() {
+     
+   if (TXT == "") {
+     document.getElementById("file").innerHTML ="No ha ingresado un archivo";
+     } else {
+   
+   al_archivo="";
+   var links=TXT.split("\n");
+   
+   for (var i = 0; i < links.length; i++) {
+           
+      if (links[i].substring(0,24) == "https://www.cotodigital3") {coto();} 
+         else {
+            if (links[i].substring(0,15) == "https://www.vea") {vea();}   
+                else {            
+                   if (links[i].substring(0,28) == "https://www.carrefour.com.ar"){carrefour();}
+                       else {
+                           if (links[i].substring(0,17) == "https://diaonline"){dia();}
+                                else {
             document.getElementById("file").innerHTML ="El formato del link no es el correcto";
             al_archivo = al_archivo + links[i].replace(/(\r\n|\n|\r)/gm, "") + ";" + "formato de link incorrecto" + "\n" ;}
-             }
-
-            
-            
-          } 
-   }
+    }        
+    } 
 }
 
 document.getElementById("file").innerHTML = "Listo!"
